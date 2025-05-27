@@ -1,0 +1,527 @@
+.horizontal-event-numbers-container {
+  display: inline-block;
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+  border: 2px solid #6366f1;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.1);
+  padding: 28px 18px;
+  margin: 0 auto;
+}
+
+.horizontal-event-numbers-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.horizontal-event-number {
+  min-width: 38px;
+  height: 38px;
+  width: 38px;
+  background: rgba(255, 255, 255, 0.78); /* Lightly opaque white */
+  color: #6366f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Rounded square */
+  font-weight: bold;
+  user-select: none;
+  font-size: 19px;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+  border: 1.5px solid rgba(99, 102, 241, 0.13);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s, filter 0.15s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+.horizontal-event-number:active {
+  transform: scale(0.92);
+  filter: brightness(0.95);
+}
+
+.horizontal-event-number:focus {
+  box-shadow: 0 0 0 3px #a5b4fc, 0 2px 8px rgba(99, 102, 241, 0.1);
+  z-index: 2;
+}
+
+.horizontal-event-number:hover {
+  background: rgba(245, 245, 255, 0.92);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.18);
+  transform: scale(1.08);
+  filter: brightness(1.08);
+  z-index: 2;
+}
+
+.calendar-outer-box {
+  display: inline-block;
+  background: linear-gradient(135deg, #f9f9f9 0%, #e0e7ff 100%);
+  border: 2px solid #6366f1;
+  border-radius: 18px;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.1);
+  padding: 28px 18px;
+  margin: 0 auto;
+  min-width: 340px;
+}
+
+.calendar-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #6366f1, 0 1px 0 #a5b4fc;
+  background: linear-gradient(90deg, #6366f1 0%, #a5b4fc 100%);
+  border-radius: 12px;
+  padding: 8px 24px;
+  box-shadow: 0 2px 12px #6366f133;
+  display: inline-block;
+  border: 2px solid #a5b4fc;
+}
+
+.calendar-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, #e0e7ff 60%, #c7d2fe 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #6366f122;
+  padding: 10px 0;
+}
+
+.calendar-nav-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #a5b4fc 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px #6366f1aa;
+  outline: none;
+}
+
+.calendar-nav-btn:active {
+  transform: scale(0.95);
+  filter: brightness(0.95);
+}
+
+.calendar-nav-btn:focus {
+  box-shadow: 0 0 0 3px #a5b4fc, 0 2px 8px rgba(99, 102, 241, 0.1);
+  z-index: 2;
+}
+
+.calendar-nav-btn:hover {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+  box-shadow: 0 4px 16px #6366f1cc;
+  transform: scale(1.06);
+  filter: brightness(1.08);
+  z-index: 2;
+}
+
+.calendar-days-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #a5b4fc 0%, #6366f1 100%);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px #6366f122;
+}
+
+.calendar-day-name {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #6366f1, 0 1px 0 #a5b4fc;
+  padding: 6px 0;
+}
+
+.calendar-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.calendar-empty-cell {
+  min-width: 38px;
+  height: 38px;
+  background: transparent;
+}
+
+.calendar-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(99, 102, 241, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.calendar-modal {
+  background: #e0e7ff;
+  border-radius: 14px;
+  padding: 26px 22px;
+  min-width: 280px;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.calendar-modal-input {
+  padding: 9px 12px;
+  border: 1px solid #6366f1;
+  border-radius: 7px;
+  font-size: 1rem;
+  background: #f1f5f9;
+}
+
+.calendar-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.event-actions-calendar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f9f9f9 100%);
+  border: 2px solid #6366f1;
+  border-radius: 22px;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.13);
+  padding: 38px 32px;
+  margin: 0 auto;
+  max-width: 520px;
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+
+.event-actions-calendar-container:hover {
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.18);
+  transform: scale(1.01);
+}
+
+.calendar-day-cell {
+  position: relative;
+}
+
+.calendar-add-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(99, 102, 241, 0.13);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s, opacity 0.15s;
+  z-index: 3;
+}
+
+.calendar-day-cell:hover .calendar-add-btn,
+.calendar-add-btn:focus {
+  opacity: 1;
+  background: linear-gradient(135deg, #6366f1 0%, #a5b4fc 100%);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.18);
+  transform: scale(1.08);
+}
+
+.calendar-add-btn:active {
+  transform: scale(0.92);
+  filter: brightness(0.95);
+}
+
+.calendar-fab-add {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1001;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1 0%, #a5b4fc 100%);
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 18px rgba(99, 102, 241, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.calendar-fab-add:hover,
+.calendar-fab-add:focus {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 100%);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.22);
+  transform: scale(1.08);
+}
+
+/* Seasonal background images for related months */
+.season-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.6s, opacity 0.4s;
+  opacity: 1;
+}
+
+/* Month-specific backgrounds with unique images for each month */
+.season-bg.january {
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"); /* Snowy forest */
+}
+.season-bg.february {
+  background-image: url("https://images.unsplash.com/photo-1444065381814-865dc9da92c0?auto=format&fit=crop&w=1200&q=80"); /* Frosty trees */
+}
+.season-bg.march {
+  background-image: url("https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80"); /* Spring flowers */
+}
+.season-bg.april {
+  background-image: url("https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=1200&q=80"); /* Rainy spring */
+}
+.season-bg.may {
+  background-image: url("https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=1200&q=80"); /* Lush green */
+}
+.season-bg.june {
+  background-image: url("https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80"); /* Early summer */
+}
+.season-bg.july {
+  background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"); /* Beach */
+}
+.season-bg.august {
+  background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80"); /* Sunflowers */
+}
+.season-bg.september {
+  background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"); /* Early autumn */
+}
+.season-bg.october {
+  background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80"); /* Autumn leaves */
+}
+.season-bg.november {
+  background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"); /* Late autumn */
+}
+.season-bg.december {
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80"); /* Snowy winter */
+}
+
+/* --- Seasonal live effects --- */
+
+/* Rain animation for spring */
+.rain-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.rain-drop {
+  position: absolute;
+  width: 2px;
+  height: 18px;
+  background: rgba(80, 180, 255, 0.7);
+  border-radius: 1px;
+  animation: rain-fall 1.2s linear infinite;
+}
+@keyframes rain-fall {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* Sun animation for summer */
+.sun-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 90px;
+  height: 90px;
+  z-index: 1;
+}
+.sun {
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle, #ffe066 60%, #ffd700 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 80px 30px #ffd700cc, 0 0 180px 60px #fffbe6aa;
+  position: relative;
+  animation: sun-spin 8s linear infinite;
+  border: 4px solid #fffbe6;
+}
+.sun::before,
+.sun::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 14px;
+  background: linear-gradient(90deg, #ffe066 0%, #ffd700 100%);
+  border-radius: 7px;
+  opacity: 0.45;
+  transform: translate(-50%, -50%) rotate(0deg);
+  filter: blur(1.5px);
+}
+.sun::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+@keyframes sun-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Autumn leaves animation */
+.leaf-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.leaf {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: url("https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f342.svg")
+    no-repeat center/contain;
+  opacity: 0.85;
+  animation: leaf-fall 2s linear infinite;
+}
+@keyframes leaf-fall {
+  0% {
+    transform: translateY(-40px) rotate(-20deg);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+/* Snow animation for winter */
+.snow-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+.snow-flake {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url("https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2744.svg")
+    no-repeat center/contain;
+  opacity: 0.8;
+  animation: snow-fall 2s linear infinite;
+}
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .calendar-outer-box,
+  .horizontal-event-numbers-container {
+    min-width: 0;
+    width: 100%;
+    padding: 12px 2vw;
+    border-radius: 14px;
+  }
+  .calendar-numbers-grid {
+    gap: 6px;
+  }
+  .horizontal-event-number {
+    min-width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-outer-box,
+  .horizontal-event-numbers-container {
+    min-width: 0;
+    width: 100vw;
+    padding: 6px 0;
+    border-radius: 10px;
+    background-color: transparent;
+  }
+  .calendar-numbers-grid {
+    gap: 3px;
+  }
+  .horizontal-event-number {
+    min-width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+  .calendar-day-name {
+    font-size: 0.9rem;
+  }
+  .calendar-fab-add {
+    bottom: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+  }
+}
